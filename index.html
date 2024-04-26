@@ -3,33 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Gestão de Notas</title>
 </head>
 <body>
         <h1>Cadastro dos Alunos</h1>
+
+        <!-- formulario de informações de aluno -->
+        <div class="container">
         <form id="formCadastro">
+            <h2>Informações de aluno</h2>
+            <div class="item">
             <label for="input_nome">Nome:</label>
             <input type="text" id="input_nome" required><br>
-            <label for="input_ra">RA:</label>
+            </div>
+            <div class="item">
+            <label for="input_ra">Ra:</label>
             <input type="number" id="input_ra" required><br>
+            </div>
+            <div class="item">
             <label for="input_email">E-mail:</label>
             <input type="email" id="input_email" required><br>
+            </div>
+        </form>
+        </div>
+
+        <!-- formulario de notas do primeiro bimestre -->
+        <div class="container">
+        <form id="formCadastro">
             <h2>Notas do Primeiro Bimestre</h2>
+            <div class="item">
             <label for="input_prova_1">Prova:</label>
             <input type="number" id="input_prova_1" step="0.01" required><br>
+            </div>
+            <div class="item">
             <label for="input_aep_1">AEP:</label>
             <input type="number" id="input_aep_1" step="0.01" required><br>
+            </div>
+            <div class="item">
             <label for="input_prova_integrada_1">Prova Integrada:</label>
             <input type="number" id="input_prova_integrada_1" step="0.01" required><br>
+            </div>
+        </form>
+        </div>
+
+        <!-- formulario de notas do segundo bimestre  -->
+        <div class="container">
+        <form id="formCadastro">
             <h2>Notas do Segundo Bimestre</h2>
+            <div class="item">
             <label for="input_prova_2">Prova:</label>
             <input type="number" id="input_prova_2" step="0.01" required><br>
+            </div>
+            <div class="item">
             <label for="input_aep_2">AEP:</label>
             <input type="number" id="input_aep_2" step="0.01" required><br>
+            </div>
+            <div class="item">
             <label for="input_prova_integrada_2">Prova Integrada:</label>
             <input type="number" id="input_prova_integrada_2" step="0.01" required><br>
-            <button type="button" onclick="addDadosAluno()">Cadastrar Aluno</button>
+            </div>
         </form>
+        </div>
+        
+        <button type="button" onclick="addDadosAluno()">Cadastrar Aluno</button>
+
+        <br> <br> <br>
+
         <h1>Alunos Cadastrados</h1>
         <table id="tabelaAlunos">
             <thead>
