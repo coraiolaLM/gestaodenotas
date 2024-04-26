@@ -5,7 +5,7 @@
 	Pedro  - RA - Html e JS
 	Gabriel Skura- 23167646-2 -  JS (localStorage)
 	Henrique Gabriel Bertoldi - 24039549-2 
-	Victor Yuiki - 23010850-2 - responsividade e comentarios
+	Victor Matusita - 23010850-2 - responsividade e comentarios
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  	
 	  					Trabalho - Gestão de Notas
