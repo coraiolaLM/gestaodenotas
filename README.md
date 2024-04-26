@@ -1,6 +1,6 @@
 #						    Gestão de Notas
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Botem o nome e sobrenome embaixo com o ra:
+	Nome, RA dos aluno:
 	Bruno Coraiola - 23067150-2 - CSS e JS
 	Pedro  - RA - Html e JS
 	Gabriel Skura- 23167646-2 -  JS (localStorage)
