@@ -1,1 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #38405f;
+    font-family: "Great Vibes", cursive;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+  }
+h1{
+    font-size: 300%;
+    color: #8b939c;
+}
+.container{
+    background-color: #59546c;
+    border: 4px solid #0e131f;
+    color: #0e131f;
+    width: 40%;
+    padding: 20px;
+    margin: 0px auto 30px;
+    box-shadow: 3px 3px 3px 3px#272c42;
+    border-radius: 9%;
+}
+.item{
+    font-size: 28px;
+    font-weight: 700;
+    margin: 10px 0; 
+    width: 100%;   
+}
+button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #0e131f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: #38405f;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #59546c;
+    font-weight: 600;
+}
+
+th {
+    background-color: #0e131f;
+    color: #ffffff;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 2px solid #0e131f;
+}
+
+th:last-child {
+    border-right: none;  
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #0e131f;
+    border-right: 1px solid #0e131f;  
+    color: #0e131f;
+}
+
+td:last-child {
+    border-right: none;  
+}
