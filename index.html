@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão de Notas</title>
+    <title>Cadastro de Alunos</title>
+</head>
+<body class="background-gradient">
+<!-- Titulo -->
+    <div class="container">
+        <h1 class="titulo">Gestão de Notas</h1>
+    </div>
+        
+    
+<!--Form de Alunos-->
+<form id="formuAluno">
+    <div class="container">
+        <!--Cadastro Alunos-->
+        <h2 class="titulosformularios">Cadastro de Alunos</h2>
+        <label for="input_nome" class="item">Nome:  </label>
+        <input type="text" id="input_nome" required><br><br>
+        <label for="input_email" class="item">Email: </label>
+        <input type="email" id="input_email" required><br><br>
+        <label for="input_ra" class="item">RA:</label>
+        <input type="number" class="sem_botão" id="input_ra"required><br>
 
+    </div>
+
+<!--Cadastro de notas do primeiro bimestre-->
+    <div class="container">
+        <h2 class="titulosformularios">Notas do Primeiro Bimestre</h2>
+        <label for="input_prova_1" class="item">Nota da Prova:</label>
+        <input type="number" id="input_prova_1" min="0" max="8" step="0.1" required><br><br>
+        <label for="input_aep_1" class="item">Nota da AEP:</label>
+        <input type="number" id="input_aep_1" min="0" max="1" step="0.1" required><br><br>
+        <label for="input_prova_integrada_1" class="item">Nota da Prova Integrada:</label>
+        <input type="number" id="input_prova_integrada_1" min="0" max="1" step="0.1" required><br><br>
+    </div>
+
+<!--Cadastro de notas do segundo bimestre-->
+    <div class="container">
+        <h2 class="titulosformularios">Notas de Segundo Bimestre</h2>
+        <label for="input_prova_2" class="item">Nota da Prova:</label>
+        <input type="number" id="input_prova_2" min="0" max="8" step="0.1"required><br><br>
+        <label for="input_aep_2" class="item">Nota da AEP:</label>
+        <input type="number" id="input_aep_2" min="0" max="1" step="0.1" required><br><br>
+        <label for="input_prova_integrada2" class="item">Nota da Prova Integrada:</label>
+        <input type="number" id="input_prova_integrada_2" min="0" max="1" step="0.1" required><br><br>
+    </div>
+</form>
+
+    <div class="containerJS">
+    <table id="tabelaAlunos">
+        <!--JS-->
+        <h1 class="titulo">tabela com as notas e inf dos alunos aqui</h1>
+    </table>
+    </div>
+
+</body>
+</html>
