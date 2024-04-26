@@ -3,7 +3,7 @@
 	Botem o nome e sobrenome embaixo com o ra:
 	Bruno Coraiola - 23067150-2 - CSS e JS
 	Pedro  - RA   - Html e JS
-	Gabriel - RA  -Função feita no trabalho
+	Gabriel Skura- 23167646-2  - Cadastro notas JS
 	Henrique - RA -Função feita no trabalho
 	Victor - RA - -Função feita no trabalho
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
