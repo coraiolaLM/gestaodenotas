@@ -93,7 +93,8 @@ const editarAluno = (button) => {
          document.getElementById('input_aep_2').value = aep2;
          document.getElementById('input_prova_integrada_1').value = provaIntegrada1;
          document.getElementById('input_prova_integrada_2').value = provaIntegrada2;
-    
+
+         document.getElementById('input_nome').focus();
     
          const formButton = document.getElementById('formCadastro').querySelector('button');
          formButton.innerText = 'Atualizar Aluno';
