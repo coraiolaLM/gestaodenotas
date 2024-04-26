@@ -1,8 +1,8 @@
 #						    Gestão de Notas
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Botem o nome e sobrenome embaixo com o ra:
-	Bruno Coraiola - 23067150-2 -Função feita no trabalho
-	Pedro  - RA   -Função feita no trabalho
+	Bruno Coraiola - 23067150-2 - CSS e JS
+	Pedro  - RA   - Html e JS
 	Gabriel - RA  -Função feita no trabalho
 	Henrique - RA -Função feita no trabalho
 	Victor - RA - -Função feita no trabalho
@@ -23,13 +23,13 @@
 
 						          	Requisitos:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Cadastro de Alunos (nome de quem fez):
+	Cadastro de Alunos (Pedro):
 	  ● O sistema deve permitir ao usuário adicionar informações dos alunos.
 	  ● As informações obrigatórias incluem nome, e-mail e RA (Registro Acadêmico).
  	  ● Não é permitido cadastrar as notas do primeiro e segundo bimestre ao mesmo tempo.
  	 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Cadastro de Notas(nome de quem fez):
+	Cadastro de Notas(Pedro):
 	  ● O usuário deve ser capaz de cadastrar as notas dos alunos de forma flexível,
  	    podendo modelar a estrutura de dados como entender.
  	  ● As notas incluem a nota da prova (valendo até 8), nota da AEP (Avaliação de
@@ -60,7 +60,7 @@
  	    permitindo flexibilidade na modelagem dos dados.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Cálculo de Médias(nome de quem fez):
+	Cálculo de Médias(Bruno):
 	  ● O sistema deve calcular automaticamente a média bimestral de cada aluno para o primeiro e segundo bimestre.
  	  ● Além disso, o sistema deve calcular a média final de cada aluno.
  	  ● A média bimestral deve ser calculada considerando a fórmula: (nota da prova * 0.8) + (nota da AEP * 0.1) + (nota da prova integrada * 0.1).
@@ -68,14 +68,14 @@
    	  ● A média final deve ser a média aritmética das médias bimestrais. 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Status de Aprovação(nome de quem fez):
+	Status de Aprovação(Bruno):
  	 ● Com base na média final de cada aluno, o sistema deve determinar seu status de aprovação.
  	 ● Se a média final for maior ou igual a 6, o aluno deve ser considerado "Aprovado".
  	 ● Se a média final for menor que 6 e maior ou igual a 3, o aluno deve estar em "Recuperação".
  	 ● Se a média final for menor que 3, o aluno deve ser considerado "Reprovado". 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Exibição em Tabela HTML(nome de quem fez):
+	Exibição em Tabela HTML(Pedro):
  	 ● Os dados dos alunos, incluindo seus nomes, notas e status de aprovação, devem ser exibidos em uma tabela HTML. 
  	 ● A tabela deve permitir a edição das notas já informadas de um aluno e também a possibilidade de excluir um aluno.
  	 ● A tabela deve ser renderizada na mesma tela de cadastro ou em uma tela separada, mas deve consultar os dados armazenados no LocalStorage.
