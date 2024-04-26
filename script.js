@@ -1,3 +1,4 @@
+// Função para adicionar dados de aluno à tabela, ao armazenamento local e recebe os inputs
 const addDadosAluno = () => {
     const nome = document.getElementById('input_nome').value;
     const ra = document.getElementById('input_ra').value;
@@ -9,7 +10,7 @@ const addDadosAluno = () => {
     const aep2 = parseFloat(document.getElementById('input_aep_2').value);
     const provaIntegrada2 = parseFloat(document.getElementById('input_prova_integrada_2').value);
 
-    
+    // Validações
     if (!nome || !ra || !email || isNaN(prova1) || isNaN(aep1) || isNaN(provaIntegrada1) || isNaN(prova2) || isNaN(aep2) || isNaN(provaIntegrada2)) {
         alert("Todos os campos são obrigatórios e devem ser números válidos");
         return;
@@ -26,6 +27,7 @@ const addDadosAluno = () => {
         return;
     }
 
+    // Calcula as médias e define se o aluno está aprovado, em recuperação ou reprovado
     const mediaBimestre1 = Math.min(10, prova1 + aep1 + provaIntegrada1);
     const mediaBimestre2 = Math.min(10, prova2 + aep2 + provaIntegrada2);
     const mediaFinal = (mediaBimestre1 + mediaBimestre2) / 2;
@@ -39,6 +41,7 @@ const addDadosAluno = () => {
         status = "Reprovado";
     }
 
+    // Cria uma nova linha na tabela com os dados do aluno
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>${nome}</td>
@@ -57,6 +60,7 @@ const addDadosAluno = () => {
     const tbody = document.getElementById('tbodyAlunos');
     tbody.appendChild(newRow);
 
+    // Reseta o formulário e salva os dados no localStorage
     document.getElementById('formCadastro').reset();
 
     localStorage.setItem(`nome_${ra}`, nome);
@@ -69,11 +73,13 @@ const addDadosAluno = () => {
     localStorage.setItem(`${ra}_provaIntegrada2`, provaIntegrada2.toString());
 };
 
+// Função para editar os dados de um aluno na tabela e no armazenamento local
 const editarAluno = (button) => {
     const row = button.parentNode.parentNode;
     const cells = row.getElementsByTagName('td');
     const ra = cells[1].innerText;
 
+    // Busca os valores armazenados no localStorage
     const nome = localStorage.getItem(`nome_${ra}`) || '';
     const email = localStorage.getItem(`email_${ra}`) || '';
     const prova1 = parseFloat(localStorage.getItem(`${ra}_prova1`)) || 0;
@@ -83,6 +89,7 @@ const editarAluno = (button) => {
     const aep2 = parseFloat(localStorage.getItem(`${ra}_aep2`)) || 0;
     const provaIntegrada2 = parseFloat(localStorage.getItem(`${ra}_provaIntegrada2`)) || 0;
 
+    // Pede novos valores ao usuário através da mensagem de aviso
     const novoNome = prompt("Novo Nome:", nome);
     const novoEmail = prompt("Novo E-mail:", email);
     const novoRa = prompt("Novo RA:", ra);
@@ -93,6 +100,7 @@ const editarAluno = (button) => {
     const novaAep2 = parseFloat(prompt("Nova Nota AEP 2:", aep2));
     const novaProvaIntegrada2 = parseFloat(prompt("Nova Nota Prova Integrada 2:", provaIntegrada2));
 
+    // Valida se as entradas do usuário são válidas
     if (novoNome === null || novoEmail === null || novoRa === null || isNaN(novaProva1) || isNaN(novaAep1) || isNaN(novaProvaIntegrada1) || isNaN(novaProva2) || isNaN(novaAep2) || isNaN(novaProvaIntegrada2)) {
         return;
     }
@@ -130,13 +138,7 @@ const editarAluno = (button) => {
     location.reload();
 };
 
-
-
-
-
-
-
-
+// Função para excluir um aluno da tabela e do localStorage
 const excluirAluno = (button) => {
     const row = button.parentNode.parentNode;
     const tbody = document.getElementById('tbodyAlunos');
@@ -150,9 +152,11 @@ const excluirAluno = (button) => {
     localStorage.removeItem(ra + '_provaIntegrada2');
 };
 
+// Evento que é executado assim que a página é carregada
 document.addEventListener('DOMContentLoaded', function(){
     const tbody = document.getElementById('tbodyAlunos');
 
+    // Itera sobre todos os itens armazenados no localStorage
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key.endsWith('_prova1')) {
@@ -178,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 status = "Reprovado";
             }
 
+            // Cria uma nova linha na tabela com os dados do aluno
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
                 <td>${nome}</td>
