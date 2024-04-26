@@ -97,6 +97,7 @@ const editarAluno = (button) => {
         return;
     }
 
+    // Atualiza os dados do aluno na tabela
     cells[0].innerText = novoNome;
     cells[1].innerText = novoRa;
     cells[2].innerText = novoEmail;
@@ -105,6 +106,7 @@ const editarAluno = (button) => {
     cells[5].innerText = ((novaProva1 + novaProva2) / 2).toFixed(2);
     cells[6].innerText = ((novaAep1 + novaAep2 + novaProvaIntegrada1 + novaProvaIntegrada2) / 4 < 6) ? "Reprovado" : "Aprovado";
 
+    // Atualiza os dados do aluno no localStorage
     localStorage.setItem(`nome_${novoRa}`, novoNome);
     localStorage.setItem(`email_${novoRa}`, novoEmail);
     localStorage.setItem(`${novoRa}_prova1`, novaProva1.toString());
@@ -114,6 +116,7 @@ const editarAluno = (button) => {
     localStorage.setItem(`${novoRa}_aep2`, novaAep2.toString());
     localStorage.setItem(`${novoRa}_provaIntegrada2`, novaProvaIntegrada2.toString());
 
+    // Remove os dados antigos do aluno do localStorage, se o RA tiver sido alterado
     if (ra !== novoRa) {
         localStorage.removeItem(`nome_${ra}`);
         localStorage.removeItem(`email_${ra}`);
@@ -124,6 +127,7 @@ const editarAluno = (button) => {
         localStorage.removeItem(`${ra}_aep2`);
         localStorage.removeItem(`${ra}_provaIntegrada2`);
     }
+    location.reload();
 };
 
 
