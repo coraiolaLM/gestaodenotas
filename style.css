@@ -72,3 +72,81 @@ td {
 td:last-child {
     border-right: none;  
 }
+
+@media screen and (max-width: 900px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+    .container {
+        width: 60%;
+        padding: 10px;
+    }
+
+    .item {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 5px 6px;
+    }
+
+    #tabelaAlunos {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    #tabelaAlunos td, #tabelaAlunos th {
+        display: table-cell;
+        padding: 10px;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+    .container {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .item {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 5px 6px;
+    }
+
+    #tabelaAlunos {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    #tabelaAlunos td, #tabelaAlunos th {
+        display: table-cell;
+        padding: 10px;
+        text-align: left;
+    }
+}
