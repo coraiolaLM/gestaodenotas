@@ -70,74 +70,68 @@ const addDadosAluno = () => {
 };
 
 const editarAluno = (button) => {
-         const row = button.parentNode.parentNode;
-         const cells = row.getElementsByTagName('td');
-    
-         const nome = cells[0].innerText;
-         const ra = cells[1].innerText;
-         const email = cells[2].innerText;
-    
-         const prova1 = parseFloat(localStorage.getItem(ra + '_prova1'));
-         const aep1 = parseFloat(localStorage.getItem(ra + '_aep1'));
-         const provaIntegrada1 = parseFloat(localStorage.getItem(ra + '_provaIntegrada1'));
-         const prova2 = parseFloat(localStorage.getItem(ra + '_prova2'));
-         const aep2 = parseFloat(localStorage.getItem(ra + '_aep2'));
-         const provaIntegrada2 = parseFloat(localStorage.getItem(ra + '_provaIntegrada2'));
-    
-         document.getElementById('input_nome').value = nome;
-         document.getElementById('input_ra').value = ra;
-         document.getElementById('input_email').value = email;
-         document.getElementById('input_prova_1').value = prova1;
-         document.getElementById('input_prova_2').value = prova2;
-         document.getElementById('input_aep_1').value = aep1;
-         document.getElementById('input_aep_2').value = aep2;
-         document.getElementById('input_prova_integrada_1').value = provaIntegrada1;
-         document.getElementById('input_prova_integrada_2').value = provaIntegrada2;
+    const row = button.parentNode.parentNode;
+    const cells = row.getElementsByTagName('td');
+    const ra = cells[1].innerText;
 
-         document.getElementById('input_nome').focus();
-    
-         const formButton = document.getElementById('formCadastro').querySelector('button');
-         formButton.innerText = 'Atualizar Aluno';
-         formButton.onclick = () => {
-             const novaProva1 = parseFloat(document.getElementById('input_prova_1').value);
-             const novaAep1 = parseFloat(document.getElementById('input_aep_1').value);
-             const novaProvaIntegrada1 = parseFloat(document.getElementById('input_prova_integrada_1').value);
-             const novaProva2 = parseFloat(document.getElementById('input_prova_2').value);
-             const novaAep2 = parseFloat(document.getElementById('input_aep_2').value);
-             const novaProvaIntegrada2 = parseFloat(document.getElementById('input_prova_integrada_2').value);
-             const novaMediaBimestre1 = Math.min(10, novaProva1 + novaAep1 + novaProvaIntegrada1);
-             const novaMediaBimestre2 = Math.min(10, novaProva2 + novaAep2 + novaProvaIntegrada2);
-             const novaMediaFinal = (novaMediaBimestre1 + novaMediaBimestre2) / 2;
-    
-             let novoStatus;
-             if (novaMediaFinal >= 6) {
-                        novoStatus = "Aprovado";
-             } else if (novaMediaFinal >= 3) {
-                        novoStatus = "Recuperação";
-             } else {
-                        novoStatus = "Reprovado";
-             }
-             cells[0].innerText = document.getElementById('input_nome').value;
-             cells[1].innerText = document.getElementById('input_ra').value;
-             cells[2].innerText = document.getElementById('input_email').value;
-             cells[3].innerText = novaMediaBimestre1.toFixed(2);
-             cells[4].innerText = novaMediaBimestre2.toFixed(2);
-             cells[5].innerText = novaMediaFinal.toFixed(2);
-             cells[6].innerText = novoStatus;
-    
-             formButton.innerText = 'Cadastrar Aluno';
-             formButton.onclick = addDadosAluno;
-    
-         localStorage.setItem(ra + '_prova1', novaProva1.toString());
-         localStorage.setItem(ra + '_aep1', novaAep1.toString());
-         localStorage.setItem(ra + '_provaIntegrada1', novaProvaIntegrada1.toString());
-         localStorage.setItem(ra + '_prova2', novaProva2.toString());
-         localStorage.setItem(ra + '_aep2', novaAep2.toString());
-         localStorage.setItem(ra + '_provaIntegrada2', novaProvaIntegrada2.toString());
-    
-         document.getElementById('formCadastro').reset();
-         };
+    const nome = localStorage.getItem(`nome_${ra}`) || '';
+    const email = localStorage.getItem(`email_${ra}`) || '';
+    const prova1 = parseFloat(localStorage.getItem(`${ra}_prova1`)) || 0;
+    const aep1 = parseFloat(localStorage.getItem(`${ra}_aep1`)) || 0;
+    const provaIntegrada1 = parseFloat(localStorage.getItem(`${ra}_provaIntegrada1`)) || 0;
+    const prova2 = parseFloat(localStorage.getItem(`${ra}_prova2`)) || 0;
+    const aep2 = parseFloat(localStorage.getItem(`${ra}_aep2`)) || 0;
+    const provaIntegrada2 = parseFloat(localStorage.getItem(`${ra}_provaIntegrada2`)) || 0;
+
+    const novoNome = prompt("Novo Nome:", nome);
+    const novoEmail = prompt("Novo E-mail:", email);
+    const novoRa = prompt("Novo RA:", ra);
+    const novaProva1 = parseFloat(prompt("Nova Nota Prova 1:", prova1));
+    const novaAep1 = parseFloat(prompt("Nova Nota AEP 1:", aep1));
+    const novaProvaIntegrada1 = parseFloat(prompt("Nova Nota Prova Integrada 1:", provaIntegrada1));
+    const novaProva2 = parseFloat(prompt("Nova Nota Prova 2:", prova2));
+    const novaAep2 = parseFloat(prompt("Nova Nota AEP 2:", aep2));
+    const novaProvaIntegrada2 = parseFloat(prompt("Nova Nota Prova Integrada 2:", provaIntegrada2));
+
+    if (novoNome === null || novoEmail === null || novoRa === null || isNaN(novaProva1) || isNaN(novaAep1) || isNaN(novaProvaIntegrada1) || isNaN(novaProva2) || isNaN(novaAep2) || isNaN(novaProvaIntegrada2)) {
+        return;
+    }
+
+    cells[0].innerText = novoNome;
+    cells[1].innerText = novoRa;
+    cells[2].innerText = novoEmail;
+    cells[3].innerText = novaProva1.toFixed(2);
+    cells[4].innerText = novaProva2.toFixed(2);
+    cells[5].innerText = ((novaProva1 + novaProva2) / 2).toFixed(2);
+    cells[6].innerText = ((novaAep1 + novaAep2 + novaProvaIntegrada1 + novaProvaIntegrada2) / 4 < 6) ? "Reprovado" : "Aprovado";
+
+    localStorage.setItem(`nome_${novoRa}`, novoNome);
+    localStorage.setItem(`email_${novoRa}`, novoEmail);
+    localStorage.setItem(`${novoRa}_prova1`, novaProva1.toString());
+    localStorage.setItem(`${novoRa}_aep1`, novaAep1.toString());
+    localStorage.setItem(`${novoRa}_provaIntegrada1`, novaProvaIntegrada1.toString());
+    localStorage.setItem(`${novoRa}_prova2`, novaProva2.toString());
+    localStorage.setItem(`${novoRa}_aep2`, novaAep2.toString());
+    localStorage.setItem(`${novoRa}_provaIntegrada2`, novaProvaIntegrada2.toString());
+
+    if (ra !== novoRa) {
+        localStorage.removeItem(`nome_${ra}`);
+        localStorage.removeItem(`email_${ra}`);
+        localStorage.removeItem(`${ra}_prova1`);
+        localStorage.removeItem(`${ra}_aep1`);
+        localStorage.removeItem(`${ra}_provaIntegrada1`);
+        localStorage.removeItem(`${ra}_prova2`);
+        localStorage.removeItem(`${ra}_aep2`);
+        localStorage.removeItem(`${ra}_provaIntegrada2`);
+    }
 };
+
+
+
+
+
+
+
 
 const excluirAluno = (button) => {
     const row = button.parentNode.parentNode;
